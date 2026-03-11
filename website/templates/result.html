@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .price-container {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .price-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .price-value {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        a, button {
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 60, 114, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1e3c72;
+            border: 2px solid #1e3c72;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        .specs-info {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .specs-info h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        
+        <div class="price-container">
+            <div class="price-label">Estimated Price</div>
+            <div class="price-value">${{ "%.2f"|format(price) }}</div>
+        </div>
+
+        <div class="specs-info">
+            <h3>Your Laptop Specifications</h3>
+            <div class="spec-item">
+                <span class="spec-label">RAM:</span>
+                <span class="spec-value">{{ ram }} GB</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Weight:</span>
+                <span class="spec-value">{{ weight }} kg</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Company:</span>
+                <span class="spec-value">{{ company }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Type:</span>
+                <span class="spec-value">{{ typename }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">OS:</span>
+                <span class="spec-value">{{ os }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">CPU:</span>
+                <span class="spec-value">{{ cpu }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">GPU:</span>
+                <span class="spec-value">{{ gpu }}</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Features:</span>
+                <span class="spec-value">
+                    {% if ips == '1' %}IPS{% endif %}
+                    {% if ips == '1' and touchscreen == '1' %}, {% endif %}
+                    {% if touchscreen == '1' %}Touchscreen{% endif %}
+                    {% if ips != '1' and touchscreen != '1' %}None{% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="/" class="btn-primary">Predict Another</a>
+        </div>
+    </div>
+</body>
+</html>
