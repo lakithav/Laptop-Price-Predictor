@@ -1,5 +1,7 @@
 # Laptop Price Predictor 💻
 
+🚀 **Live Demo:** https://laptop-price-predictor-n3dd.onrender.com/
+
 A machine learning-powered web application that predicts laptop prices based on specifications like RAM, weight, processor, GPU, and other features.
 
 ## 🌟 Features
