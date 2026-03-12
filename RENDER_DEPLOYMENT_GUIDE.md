@@ -15,6 +15,7 @@ This guide will walk you through deploying your Flask-based Laptop Price Predict
 ### Step 1: Prepare Your Project Structure
 
 Your project should have the following structure:
+
 ```
 Laptop-Price-Predictor/
 ├── website/
@@ -34,6 +35,7 @@ Laptop-Price-Predictor/
 ### Step 2: Update Your Files
 
 #### ✅ Already Done:
+
 - `requirements.txt` includes `gunicorn` (required for production)
 - `app.py` updated to use PORT environment variable
 
@@ -48,6 +50,7 @@ gunicorn app:app
 ```
 
 Make it executable (if on Linux/Mac):
+
 ```bash
 chmod +x start.sh
 ```
@@ -57,11 +60,13 @@ chmod +x start.sh
 ### Step 3: Push Your Code to GitHub
 
 1. **Initialize Git repository** (if not already done):
+
 ```bash
 git init
 ```
 
 2. **Create a `.gitignore` file** in the root directory:
+
 ```
 # Virtual environments
 env/
@@ -107,6 +112,7 @@ Thumbs.db
 ```
 
 3. **Add and commit your files**:
+
 ```bash
 git add .
 git commit -m "Initial commit for Render deployment"
@@ -120,6 +126,7 @@ git commit -m "Initial commit for Render deployment"
    - Click "Create repository"
 
 5. **Push to GitHub**:
+
 ```bash
 git remote add origin https://github.com/YOUR_USERNAME/laptop-price-predictor.git
 git branch -M main
@@ -147,16 +154,16 @@ git push -u origin main
 
    Fill in the following settings:
 
-   | Setting | Value |
-   |---------|-------|
-   | **Name** | `laptop-price-predictor` (or your preferred name) |
-   | **Region** | Choose closest to you (e.g., Oregon, Frankfurt, Singapore) |
-   | **Branch** | `main` |
-   | **Root Directory** | Leave blank (uses repository root) |
-   | **Runtime** | `Python 3` |
-   | **Build Command** | `pip install -r requirements.txt` |
-   | **Start Command** | `cd website && gunicorn app:app` |
-   | **Plan** | `Free` |
+   | Setting            | Value                                                      |
+   | ------------------ | ---------------------------------------------------------- |
+   | **Name**           | `laptop-price-predictor` (or your preferred name)          |
+   | **Region**         | Choose closest to you (e.g., Oregon, Frankfurt, Singapore) |
+   | **Branch**         | `main`                                                     |
+   | **Root Directory** | Leave blank (uses repository root)                         |
+   | **Runtime**        | `Python 3`                                                 |
+   | **Build Command**  | `pip install -r requirements.txt`                          |
+   | **Start Command**  | `cd website && gunicorn app:app`                           |
+   | **Plan**           | `Free`                                                     |
 
 4. **Advanced Settings** (Optional but Recommended):
    - Click "Advanced"
@@ -211,6 +218,7 @@ if __name__ == '__main__':
 ### Issue 3: Model File Not Found
 
 **Solution**: Verify the model path in `app.py`:
+
 - If you get "model/predictor.pickle not found"
 - Check that the file exists in your GitHub repository
 - Ensure Git isn't ignoring `.pickle` files
@@ -225,13 +233,15 @@ git push
 ### Issue 4: Static Files Not Loading
 
 **Solution**: Use Flask's url_for in templates:
+
 ```html
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 ```
 
 ### Issue 5: Large Dependencies Causing Build Timeout
 
 **Solution**: Render free tier has build time limits. If scipy/numpy cause issues:
+
 - Use pre-built wheels
 - Consider upgrading to paid tier for faster builds
 
@@ -242,6 +252,7 @@ git push
 When you make changes to your code:
 
 1. **Commit and push changes**:
+
 ```bash
 git add .
 git commit -m "Description of changes"
@@ -263,12 +274,14 @@ git push origin main
 ## 📊 Monitoring Your Application
 
 ### View Logs
+
 1. Go to your Render dashboard
 2. Click on your service
 3. Click "Logs" tab
 4. See real-time application logs
 
 ### Check Metrics
+
 1. In your service dashboard
 2. View "Metrics" tab
 3. Monitor:
@@ -282,6 +295,7 @@ git push origin main
 ## 💡 Important Notes About Render Free Tier
 
 ### Advantages:
+
 - ✅ Completely free
 - ✅ Automatic HTTPS
 - ✅ Automatic deployments from GitHub
@@ -289,13 +303,16 @@ git push origin main
 - ✅ Custom domains supported
 
 ### Limitations:
+
 - ⚠️ **Services spin down after 15 minutes of inactivity**
 - ⚠️ First request after inactivity takes 30-60 seconds (cold start)
 - ⚠️ 512 MB RAM limit
 - ⚠️ Limited build minutes
 
 ### Keeping Your Service Active:
+
 If you want to avoid cold starts, consider:
+
 1. Using a free uptime monitoring service (e.g., UptimeRobot)
 2. Upgrading to Render's paid tier ($7/month for always-on)
 
@@ -345,6 +362,7 @@ Before deploying, ensure:
 ## 🎉 Success!
 
 Once deployed, your Laptop Price Predictor will be accessible at:
+
 ```
 https://your-service-name.onrender.com
 ```
@@ -356,6 +374,7 @@ Share this URL with anyone to use your price predictor!
 ## 📞 Need Help?
 
 If you encounter issues:
+
 1. Check Render logs for error messages
 2. Review the troubleshooting section above
 3. Search Render community forum

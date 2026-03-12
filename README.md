@@ -53,49 +53,59 @@ This project is deployed on **Render** (free hosting).
 ## 💻 Local Development
 
 ### Prerequisites
+
 - Python 3.8+
 - pip
 
 ### Setup
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/laptop-price-predictor.git
 cd laptop-price-predictor
 ```
 
 2. **Create virtual environment**
+
 ```bash
 python -m venv .venv
 ```
 
 3. **Activate virtual environment**
+
 - Windows:
+
 ```bash
 .venv\Scripts\activate
 ```
+
 - Mac/Linux:
+
 ```bash
 source .venv/bin/activate
 ```
 
 4. **Install dependencies**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 5. **Run the application**
+
 ```bash
 cd website
 python app.py
 ```
 
 6. **Access the app**
-Open your browser and go to: `http://localhost:5000`
+   Open your browser and go to: `http://localhost:5000`
 
 ## 📊 Model Information
 
 The prediction model is trained on laptop specifications including:
+
 - RAM (GB)
 - Weight (kg)
 - Company (Acer, Apple, Asus, Dell, HP, Lenovo, MSI, Toshiba)
