@@ -1,0 +1,42 @@
+# Virtual Environment
+env/
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Flask
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files (uncomment if your pickle files are very large)
+# *.pickle
+# *.pkl
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
